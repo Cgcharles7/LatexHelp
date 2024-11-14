@@ -1,0 +1,867 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Paper Help</title>
+<style>
+  button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #results {
+    margin-top: 20px;
+  }
+  
+  .result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+</style>
+
+<script type="text/javascript">
+function rand()
+{
+	var elts = document.getElementById("link").options;
+	var loc = Math.floor(Math.random() * elts.length);
+	document.getElementById("link").options[loc].selected = true;
+	var val = document.getElementById("link").value;
+	openLink();
+}
+
+function remStory()
+{
+	var x = document.getElementById('link');
+	var loc = x.selectedIndex;
+	x.remove(loc);
+	if (loc < x.options.length)
+		x.selectedIndex = (loc);
+	x.focus();
+}
+function openLink()
+{
+	var src = "<p>";
+	src += document.getElementById("link").value;
+	src += "</p>";
+ 	document.getElementById("display2").innerHTML = src;
+ 	document.getElementById("linkurl").value = document.getElementById("link").value
+}
+function search()
+{
+	var term = document.getElementById("schval").value.toLowerCase();
+	term = term.split(" ");
+	res = [];
+	var data = document.getElementById("link").options;
+	console.log(data.length);
+
+	
+	for (var j = 0; j < term.length; j++)
+	{
+		for (var i in data)
+		{
+		    console.log("data = ", data[i]);
+		    console.log("data.value = ", data[i].value);
+		    if (data[i].value && data[i].value.toLowerCase().indexOf(term[j].toLowerCase()) != -1) {
+                res.push(data[i].value);
+            }
+
+//			if (data[i].indexOf("value") != -1 && data[i].value.toLowerCase().indexOf(term[j]) != -1)
+//			{
+				
+//			}
+		}
+	}
+
+    return res;
+//	document.getElementById("display2").innerHTML = res.join("<br>");
+}
+function displayResults(results) {
+    let resultDiv = document.getElementById("results");
+    resultDiv.innerHTML = ""; // Clear previous results
+    
+    results.forEach(result => {
+        let resultItem = document.createElement("div");
+        resultItem.className = "result-item";
+        resultItem.innerHTML = `<h3>${result.title}</h3><p>${result.content}</p>`;
+        resultDiv.appendChild(resultItem);
+    });
+}
+
+
+function buildforums()
+{
+	cntr = 0;
+	fmidx = {};
+	cntr++;	i = "inproof - Statement of the Thorem: Let P be a property that satisfies the following conditions: _________. Then, we claim that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Assumption: Assume that _________. This means that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Definition: By definition, _________ implies that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Claim: We claim that _________. To prove this, we will show that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Proof Strategy: We will use _________ (e.g., contradiction, induction, direct proof) to demonstrate that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Base Case (for induction): For n=1, we have _________. Therefore, _________ holds true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Inductive Step: Assume that the statement holds for n=k. That is, _________. We need to show that _________ holds for n=k+1.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Conclusion of the Inductive Step: Therefore, we have shown that if the statement is true for n=k, it must also be true for n=k+1. By induction, _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Contradiction: Suppose, for the sake of contradiction, that _________. Then, _________ leads to _________, which contradictns _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Logical Steps: From _________, it follows that _________. Thus, we can conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Final Conclusion: Hence, we have proved that _________. This completes the proof.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Statement of the Theorem: Let P be a prime number. Then, we claim that P cannot be even unless P=2.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Assumption: Assume that P is an even prime number. This means that P can be expressed as 2k for some integer k.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Definition: By definition, a prime number has exactly two distinct positive divisors, which are 1 and P.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Claim: We claim that P must equal 2. To prove this, we will show that any other even number cannot be prime.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Proof Strategy: We will use contradiction to demonstrate that P cannot be an even number other than 2.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Conclusion: Therefore, since P must equal 2, we conclude that the only even prime number is 2.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Existence Statement: We wish to show that there exists an element _________ such that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Uniqueness Statement: Suppose there are two elements, a and b, such that _________. We need to show that a=b.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Letting Variables: Let x∈S where S is defined as _________. Then, _________ can be inferred.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using a Lemma/Theorem: By applying the lemma/theorem _________, we can conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Case Analysis: We will consider two cases: Case 1: _________; Case 2: _________. In both cases, we will show that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Direct Proof: To prove that A implies B, we start by assuming that A is true. Thus, _________ leads us to conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Contrapositive Proof: To prove that A implies B, we will show that the contrapositive ¬B implies ¬A. Assume ¬B holds, which means _________. Therefore, _________ must also hold, implying that ¬A is true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using an Example: Consider the specific example of _________. This illustrates that _________ holds true because _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Properties of Operations: We utilize the properties of _________ (e.g., addition, multiplication) to conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Transitive Property: Given that a≤b and b≤c, by the transitive property, we have _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Closure Property: Since the operation is closed under _________, we can say that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Inequality Argument: We want to show that a<b. Starting from _________, we have _________, which implies that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using Symmetry: Because the relation is symmetric, if aRb, it follows that bRa. Thus, _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Summation: The sum can be expressed as ∑i=1nai. By the properties of summation, we have _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Asymptotic Behavior: We need to show that f(n) grows asymptotically as _________. Therefore, f(n)=O(g(n)) if _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Continuity Argument: To show that f is continuous at x=c, we need to demonstrate that _________ holds true as x approaches c.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Induction Hypothesis: Assume the statement is true for n=k. Then, we assume that _________ holds for n=k, which allows us to prove it for n=k+1.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Conclusion of Existence: Therefore, we conclude that there exists at least one element _________ such that _________ holds true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Final Step: Thus, we have shown that under the assumptions of the theorem, _________. Therefore, the proof is complete.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Existence Statement: We wish to show that there exists an element x in R such that x2=4.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Uniqueness Statement: Suppose there are two elements, a and b, such that a2=4 and b2=4. We need to show that a=b.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using a Lemma/Theorem: By applying the theorem of unique factorization, we conclude that every integer greater than 1 can be expressed uniquely as a product of prime numbers.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Case Analysis: We will consider two cases: Case 1: n is even; Case 2: n is odd. In both cases, we will show that n2 is congruent to 0 or 1 modulo 4.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Final Step: Thus, we have shown that for any prime p, p≡1 or 3 modulo 4. Therefore, the proof is complete.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Feel free to adapt these statements further for your specific mathematical proofs!";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using Counterexamples: To prove that the statement is false, we will provide a counterexample. Consider _________. This demonstrates that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Implication Statement: If we assume A is true, then we can derive that _________, which implies _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Set Notation: Let S be defined as the set of all elements x such that _________. Then, we have that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Interval Argument: For x in the interval _________, we can see that _________, which leads to the conclusion that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Boundedness: We will show that f(x) is bounded above by _________. Thus, we can conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Limit Definition: We need to show that limx→af(x)=L. By the definition of a limit, for every ϵ>0, there exists a δ>0 such that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Closure Under Addition: To show that S is closed under addition, take any a,b∈S. Then, we have _________, which implies that _________ is also in S.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Application of a Property: Using the property of _________, we can simplify our expression to _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Integration Argument: We need to evaluate ∫abf(x)dx. By the Fundamental Theorem of Calculus, we know that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Summation Expansion: The expression ∑i=1ni can be expanded as _________. This gives us the formula _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Generating Functions: The generating function for the sequence an is given by _________. This helps us derive that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Monotonicity: We will show that the sequence an is monotonically increasing. If an<an+1, then _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Symmetric Property: Since R is a symmetric relation, if aRb, it follows that bRa. Therefore, we conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Translating Inequalities: From the inequality a<b and b<c, we can conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Convergence Criteria: To determine whether the series ∑n=1∞an converges, we will apply the _________ test. If an→0 as n→∞, then _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Countable Sets: We will show that the set S is countable. Since we can list its elements as S={a1,a2,a3,_____}, it follows that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Completeness: By the completeness property of the real numbers, every Cauchy sequence _________ converges to a limit in R.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Equivalence Relation: To show that R is an equivalence relation, we need to demonstrate that it is reflexive, symmetric, and transitive. We have already established that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Conclusion of Argument: Hence, we conclude that the hypothesis leads to the conclusion that _________, and thus _________ must be true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Final Statement: Therefore, we have shown that under the assumptions provided, _________. This completes the proof.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Example of How to se the Additional Statements";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using Counterexamples: To prove that the statement “All prime numbers are odd” is false, we will provide a counterexample. Consider 2. This demonstrates that there exists a prime number that is not odd.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Limit Definition: We need to show that limx→2(3x+1)=7. By the definition of a limit, for every ϵ>0, there exists a δ>0 such that if ∣x−2∣<δ, then ∣(3x+1)−7∣<ϵ.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Convergence Criteria: To determine whether the series ∑n=1∞n21 converges, we will apply the p-series test. Since p=2>1, we conclude that the series converges.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Final Statement: Therefore, we have shown that under the assumptions provided, P(n) holds for all integers n≥1. This completes the proof.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Reduction to Absurdity: Assume for contradiction that _________. Then, we arrive at the conclusion that _________, which contradicts our initial assumption.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Constructive Proof: To prove that A holds, we will construct an example where _________. Therefore, A is true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Induction Base Case: For the base case, we will show that the statement holds for n=1. This gives us _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Inductive Step: Assuming the statement is true for n=k, we will show it holds for n=k+1. Starting from _________, we can derive that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Existence Proof via Function: We define the function f(x) = _________. We will show that there exists a root in the interval _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Logical Equivalence: The statements A and B are logically equivalent because _________. Thus, if A is true, then _________ must also hold.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Density Argument: We wish to show that the rational numbers are dense in the real numbers. For any two real numbers a and b with a<b, we can find a rational number _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Squeeze Theorem: To apply the Squeeze Theorem, we need to find two functions g(x) and h(x) such that _________. Thus, we conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Completeness of Rational Numbers: Since the rational numbers Q are not complete, there exists a Cauchy sequence that does not converge in Q, such as _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Closure Under Multplication: To show that S is closed under multiplication, we need to demonstrate that for any a,b∈S, the product ab∈S. Since _________, we have _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Distance Argument: We will show that the distance between points A and B is less than ϵ. Therefore, ∣A−B∣<ϵ implies _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Assumption of Opposite: Assume that A is false. Then, we can infer that _________, which leads to a contradiction with _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using Graph Properties: Consider the graph of f(x). Since it is continuous, we can apply the Intermediate Value Theorem, which states that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Inverse Function: If f is a bijection, then there exists an inverse function f−1 such that _________. This implies that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Substitution Method: Let u = _________. Substituting into our original equation gives us _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Contradiction through Cases: We will proceed by cases. Case 1: If _________; Case 2: If _________. In both cases, we find that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Finite Additivity: We will show that for any finite collection of disjoint sets A1,A2,_____,An, the measure satisfies _________. Thus, the property holds.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Establishing Boundaries: To prove that f(x) is bounded on [a,b], we need to show that there exists M>0 such that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Continuity and Compactness: Since f is continuous on the compact set [a,b], it follows that _________. Therefore, f attains its maximum and minimum on this interval.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Function Behavior: We will analyze the behavior of f(x) as x approaches c. As x→c, we find that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Topology Argument: In the topology induced by the metric d, we have that a set is open if _________. Thus, A is open because _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Analytic Continuation: We can extend the function f(z) to the complex plane via analytic continuation, leading to the conclusion that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Recursion Relation: The sequence an is defined recursively by a_n = _________. Therefore, we can express an in closed form as _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Finding Limits: To find limx→cf(x), we will evaluate the limit directly as x approaches c. Thus, we have _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - L'Hôpital's Rule: To evaluate the limit limx→cg(x)f(x) in the indeterminate form 00, we apply L'Hôpital's Rule, yielding _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Using Symmetry: Due to the symmetry of the function f(x), we can conclude that f(a)=f(−a) for all a. Therefore, _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Normality Condition: A sequence {an} is said to be normal if _________. This allows us to conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Behavior of Series: The series ∑n=1∞an converges if the terms an approach 0. Hence, we need to check that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Homomorphism Property: Let f:G→H be a homomorphism. We show that f(a⋅b)=f(a)⋅f(b). Thus, we can conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Generalization Statement: This result can be generalized to n dimensions, leading us to conclude that _________.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Example of How to Use the Additional Statements";fmidx[i] = [i];
+	cntr++;	i = "inproof - Reduction to Absurdity: Assume for contradiction that 2 is rational. Then, we arrive at the conclusion that 2=b2a2 for some integers a and b, which contradicts our initial assumption.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Induction Base Case: For the base case, we will show that the statement holds for n=1. This gives us P(1) is true.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Squeeze Theorem: To apply the Squeeze Theorem, we need to find two functions g(x) and h(x) such that g(x)≤f(x)≤h(x). Thus, we conclude that limx→cf(x)=L.";fmidx[i] = [i];
+	cntr++;	i = "inproof - Normality Condition: A sequence {an} is said to be normal if it is bounded and every subsequence has a further convergent subsequence. This allows us to conclude that {an} converges.";fmidx[i] = [i];
+	cntr++;	i = "inproof - inproof - Definition of the Concept:";fmidx[i] = [i];
+	cntr++;	i = "exmp - In this example, we demonstrate the concept of __________, which is defined as __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Consider the following conditions: __________. These conditions are important because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - We assume that __________ in order to simplify the problem. This assumption allows us to __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - To solve this example, we employ the method of __________, which involves __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The key steps in our solution include: 1) __________, 2) __________, and 3) __________. Each step is crucial because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - As a result of our calculations, we find that __________. This result indicates that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example is significant because it illustrates the theory of __________, showing that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In practical terms, this example suggests that __________, which can lead to __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - One limitation of this example is __________, which means that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The findings from this example can be applied to __________, particularly in situations where __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - To provide context, we start with the background of __________, which is essential because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The objective of this example is to demonstrate __________, highlighting how __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - We define the following parameters: __________. These parameters are significant as they __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In setting up the example, we choose __________ because it allows us to explore __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - After applying the initial steps, we obtain the intermediary result of __________. This result is important because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example builds on previous work by __________, which differs from our approach in that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The visual representation of this example can be seen in __________. This visualization helps clarify __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - To test the robustness of our findings, we consider the counterexample of __________, which shows that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The implications of this example for future research include __________, suggesting that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In conclusion, this example allows us to conclude that __________, reinforcing the idea that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The underlying principles that govern this example are __________. Understanding these principles is crucial for __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - While this approach is effective, it has limitations, such as __________. Acknowledging these limitations is important because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - From this example, we can generalize the results to state that __________, which applies broadly in __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Historically, this example is significant because it connects to __________, which has shaped our understanding of __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - We test the hypothesis that __________ in this example, and our findings support this hypothesis by demonstrating __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Our methodological approach involves __________, which is necessary for __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The data collected for this example includes __________. This data is critical because __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In this example, we validate our assumptions by __________, which confirms that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - We apply analytical techniques such as __________ to examine __________, allowing for a deeper understanding of __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - An error analysis reveals that __________. This analysis is important as it highlights __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example is situated within the theoretical framework of __________, which provides insights into __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Practical examples of this concept can be seen in __________, illustrating how __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example integrates with other concepts like __________, demonstrating that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - When we compare our results to __________, we observe that __________, indicating __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example opens the door for further investigation into __________, particularly in relation to __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In real-world applications, this example illustrates how __________ can be utilized in __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - We acknowledge that one limitation of our example is __________, which suggests that __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The broader implications of this example suggest that __________, potentially influencing __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Building on preceding examples, this case of __________ emphasizes __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - In summary, the conclusion drawn from this example is that __________, which is consistent with __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The practical consequences of this finding indicate that __________, which could lead to __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The mathematical significance of this example lies in its ability to __________, thus contributing to __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - This example also highlights unexplored areas, such as __________, where further research may reveal __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - Feedback from our results indicates that __________, which necessitates reconsideration of __________.";fmidx[i] = [i];
+    cntr++;	i = "exmp - The potential for generalization from this example is promising, as it suggests that __________ can be applied in __________.";fmidx[i] = [i];
+    cntr++;	i = "def - We define the term ______ as ______. Specifically, it refers to ______, where ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The concept of ______ is closely related to ______, but differs in that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - An example of ______ is ______, which satisfies ______ by ______.";fmidx[i] = [i];
+    cntr++;	i = "def - To determine if ______ holds, we apply ______ to check whether ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Intuitively, ______ can be understood as ______, which allows us to ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The key characteristics of ______ include ______, which ensures that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The term ______ is used when ______, provided that ______ holds.";fmidx[i] = [i];
+    cntr++;	i = "def - In general, ______ refers to ______, but in the specific case of ______, it represents ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The term ______ was first introduced by ______ in ______, to describe ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Formally, we define ______ as follows: ______, where ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Consider the scenario where ______; in this context, ______ is defined as ______.";fmidx[i] = [i];
+    cntr++;	i = "def - While ______ is commonly understood as ______, we can distinguish it from ______ by noting that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The term ______ often involves a quantitative measure, specifically ______, which quantifies ______.";fmidx[i] = [i];
+    cntr++;	i = "def - In practical applications, ______ serves to ______, indicating that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Mathematically, we represent ______ as ______, which illustrates that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - It is important to note that the definition of ______ is limited to situations where ______, otherwise ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Historically, the understanding of ______ has evolved from ______ to its current definition of ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Within the framework of ______, the term ______ is essential for ______, particularly when ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The definition of ______ assumes that ______, which is crucial for ______ to hold true.";fmidx[i] = [i];
+    cntr++;	i = "def - For instance, ______ illustrates ______; however, a counterexample would be ______, demonstrating that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The concept of ______ not only applies in mathematics but also connects to ______ in ______, where ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Understanding ______ is vital because it allows for ______, leading to ______ in real-world applications.";fmidx[i] = [i];
+    cntr++;	i = "def - At its simplest, ______ can be understood as ______; however, it becomes complex when ______.";fmidx[i] = [i];
+    cntr++;	i = "def - In studying ______, we focus on ______, which reveals ______ about the nature of ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The implications of defining ______ are significant for future research, especially in areas such as ______, where ______.";fmidx[i] = [i];
+    cntr++;	i = "def - A characteristic feature of ______ is that it ______, which helps to explain ______.";fmidx[i] = [i];
+    cntr++;	i = "def - To understand ______, one must first grasp ______, as it provides the foundation for ______.";fmidx[i] = [i];
+    cntr++;	i = "def - A significant milestone in the study of ______ was marked by ______, who proposed ______.";fmidx[i] = [i];
+    cntr++;	i = "def - For ______ to be applicable, it is necessary that ______, ensuring that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - From a different perspective, ______ may be viewed as ______, contrasting with ______ by highlighting ______.";fmidx[i] = [i];
+    cntr++;	i = "def - In special cases of ______, such as ______, the definition simplifies to ______, allowing for easier application.";fmidx[i] = [i];
+    cntr++;	i = "def - Exploring the concept of ______ reveals that it encompascntr++;	i = [ses ______, which can be further analyzed through ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The relationship between ______ and ______ suggests that ______ influences ______ in such a way that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The formulation of ______ is derived from ______, leading to the conclusion that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - In a logical framework, ______ can be defined as ______, which ultimately leads to ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The importance of ______ in theoretical mathematics lies in its ability to ______, thereby facilitating ______.";fmidx[i] = [i];
+    cntr++;	i = "def - When analyzing ______, it is essential to consider the dimensions of ______, as this affects ______.";fmidx[i] = [i];
+    cntr++;	i = "def - While ______ is applicable in certain contexts, it is important to acknowledge its limitations, particularly when ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Key properties of ______ include ______, which are crucial for understanding ______ in more complex scenarios.";fmidx[i] = [i];
+    cntr++;	i = "def - Geometrically, ______ can be visualized as ______, illustrating that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Defining ______ has far-reaching implications for further study, particularly in ______, where it may affect ______.";fmidx[i] = [i];
+    cntr++;	i = "def - To delve deeper into ______, we must ask questions such as ______, which will lead us to ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The definition of ______ has the consequence that ______, which is pivotal for ______.";fmidx[i] = [i];
+    cntr++;	i = "def - To analyze ______, one might employ techniques such as ______, which enables a clearer understanding of ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The study of ______ also intersects with ______, as it shares common principles of ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The defining characteristics of ______ are ______, which help differentiate it from ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Experimental verification of ______ can be achieved through ______, confirming that ______.";fmidx[i] = [i];
+    cntr++;	i = "def - In applications, ______ plays a crucial role by ______, which directly impacts ______.";fmidx[i] = [i];
+    cntr++;	i = "def - Further exploration of ______ reveals that ______, prompting additional investigation into ______.";fmidx[i] = [i];
+    cntr++;	i = "def - The dynamic nature of the definition of ______ suggests that as our understanding evolves, ______ may also change to reflect ______.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof establishes the connection between ___ and ___ by showing that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We begin by assuming ___, which will allow us to conclude ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The key idea in this proof is the relationship between ___ and ___, which we demonstrate through ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - To prove this result, we need to first show that ___ holds for ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - By applying ___, we can deduce that ___ follows from ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Next, we consider the case when ___, which leads to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This result hinges on the fact that ___, as shown in the previous step.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We proceed by demonstrating that ___ implies ___ under the assumption of ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Therefore, we conclude that ___ must hold, completing the proof.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Finally, by combining the results from ___ and ___, we arrive at ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof demonstrates how ___ follows from ___";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we establish that ___ is true by considering ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The goal of this proof is to show the relationship between ___ and ___ using ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We will prove ___ by first showing ___, and then ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof outlines the necessary steps to demonstrate that ___ leads to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The main idea of this proof is to illustrate how ___ can be derived from ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we provide a rigorous justification for the fact that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - To verify that ___ holds, we will use ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof explains the method by which ___ can be proven based on ___.";fmidx[i] = [i];
+    
+    cntr++;	i = "outproof - The structure of this proof involves first proving ___, and then applying it to show ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The purpose of this proof is to confirm that ___ naturally leads to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we demonstrate that ___ can be derived from ___ through ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We aim to establish that ___ holds by breaking the argument into ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The proof will show that ___ must follow from the assumption that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof will systematically show that ___ is a consequence of ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - To prove ___, we will first assume ___ and then apply ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The key to this proof is recognizing that ___ and ___ are connected by ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We begin this proof by noting the relationship between ___ and ___, which leads to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof illustrates how ___ can be transformed into ___ through ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - By proving ___, we confirm that the statement ___ is true.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Our approach in this proof will be to first demonstrate ___ and then show that it implies ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we will verify that ___ satisfies the conditions for ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof will establish a general result that applies to both ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We aim to prove ___ by first considering ___ and then examining its effect on ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - By using ___, we can show that ___ leads directly to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof provides a step-by-step demonstration of how ___ results from ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We will construct this proof by considering ___ and proving that it implies ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we demonstrate that the assumption of ___ leads us to the conclusion that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof seeks to confirm that the hypothesis ___ is sufficient to prove ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Our proof will rely on the fact that ___ holds for ___ and use this to show ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We establish the validity of ___ by showing that it satisfies the criteria for ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we examine the conditions under which ___ and demonstrate that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We will prove ___ by breaking it into two cases: ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof shows how the properties of ___ lead to the conclusion that ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We approach this proof by first considering the simpler case of ___ and then generalizing it to ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The proof hinges on demonstrating that ___ holds in both the case of ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We can prove ___ by using the concept of ___, which allows us to conclude ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - Our proof demonstrates that under the assumption ___, the result ___ follows directly.";fmidx[i] = [i];
+    cntr++;	i = "outproof - In this proof, we build on ___ to show that ___ is a necessary condition for ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We begin this proof by defining ___, which will help us establish the relationship between ___ and ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof shows thcntr++;	i = [at ___ is sufficient to guarantee ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We will proceed by showing that ___ is a special case of ___, which implies ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - The proof will rely on demonstrating that the conditions for ___ are met when ___.";fmidx[i] = [i];
+    cntr++;	i = "outproof - This proof will show that under the framework of ___, the result ___ can be derived.";fmidx[i] = [i];
+    cntr++;	i = "outproof - We conclude this proof by showing that ___ completes the necessary conditions for ___.";fmidx[i] = [i];
+    
+    cntr++;	i = "litrev - Recent studies have explored the impact of _____ on _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - _____ found a significant correlation between _____ and _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Previous research highlights the effectiveness of _____ in reducing _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The role of _____ has been widely debated _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Multiple scholars argue for the importance of _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Recent advances in _____ have focused on improving _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Evidence suggests a strong link between _____ and _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - _____ emphasize the need for _____ in _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Several researchers have examined the challenges of implementing _____ in _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - _____ have been a focal point in _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Recent studies highlight the role of _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The effectiveness of _____ has been increasingly scrutinized in recent years.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Several researchers have investigated the relationship between _____ and _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - _____ explored the impact of _____ on _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Research on _____ suggests its _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The rise of _____ has _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Previous work emphasizes the _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Recent literature explores the long-term effects of _____ on _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Studies have shown a strong link between _____ and _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The influence of _____ on _____ has been widely examined by _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite growing interest, research on the long-term effects of _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although previous research has examined ____, few studies have focused on ____ in the context of ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Recent studies have highlighted the importance of ____, but gaps remain in understanding ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Several scholars have explored the impact of ____, yet the role of ____ remains underexplored.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While ____ has been widely studied, its influence on ____ has received less attention.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Research on ____ has primarily focused on ____, leaving a need for further investigation into ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite the growing body of literature on ____, there is limited empirical evidence regarding ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Existing studies on ____ have produced mixed findings, with some suggesting ____ and others indicating ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The majority of research in this area has concentrated on ____, with relatively few addressing ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Studies have frequently assessed ____, but there is a notable lack of research examining ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - ____ has been explored extensively, but little is known about how ____ interacts with ____ in ____ settings.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although ____ is well-documented in the literature, its application to ____ remains unclear.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Previous research has largely focused on ____, but the effect of ____ on ____ is still poorly understood.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Studies investigating ____ have primarily examined ____, while research on ____ is comparatively scarce.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While considerable research exists on ____, there is limited insight into the potential impact of ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Most of the existing literature addresses ____, but little attention has been paid to ____ in ____ contexts.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The relationship between ____ and ____ has been explored, yet the mechanisms underlying ____ remain ambiguous.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite evidence suggesting ____, there is a lack of comprehensive studies addressing ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Research has predominantly centered on ____, with fewer studies exploring the nuances of ____ in ____ populations.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although ____ has been widely studied, there is still a need for further exploration of ____ across different ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While recent studies have made significant strides in understanding ____, the specific role of ____ remains underdeveloped.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While numerous studies have examined ____, the long-term effects of ____ are still not fully understood.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite substantial research on ____, few studies have investigated its impact on ____ in ____ settings.";fmidx[i] = [i];
+    cntr++;	i = "litrev - ____ has been a topic of interest for many researchers, but the implications for ____ remain underexplored.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The literature on ____ is extensive, yet there is limited research addressing ____ in ____ populations.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Most studies focus on the benefits of ____, but the potential drawbacks of ____ are rarely discussed.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The relationship between ____ and ____ is well-documented, but little is known about how ____ moderates this relationship.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Existing research on ____ tends to focus on ____, leaving ____ largely understudied.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although ____ has been explored in several contexts, its influence on ____ in ____ environments is still unclear.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Few studies have examined the intersection of ____ and ____, despite increasing recognition of its importance.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While there is growing interest in ____, there is a notable lack of research on ____ in ____ populations.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The role of ____ in ____ has received considerable attention, but there is still limited understanding of ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Current literature on ____ is largely concentrated on ____, with fewer studies investigating ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Much of the research on ____ has focused on ____, but how ____ affects ____ remains largely unexplored.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While ____ is a well-established area of study, research on its interaction with ____ is still in its infancy.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite the abundance of studies on ____, the impact of ____ on ____ is still not well-defined.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Studies on ____ often overlook the role of ____ in shaping ____, leaving an important gap in the literature.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although ____ has been widely studied, the specific context of ____ has yet to be fully addressed.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Research has shown that ____, but there is little evidence regarding how ____ influences ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While ____ has been examined from multiple perspectives, the question of how ____ affects ____ remains unanswered.";fmidx[i] = [i];
+    cntr++;	i = "litrev - There is ample evidence supporting ____, but the relationship between ____ and ____ is still debated.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Despite the significant body of research on ____, few studies have looked at ____ within the framework of ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Research on ____ has primarily focused on ____ populations, with limited attention to ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Though ____ has been studied extensively, its relationship with ____ in ____ contexts is not yet fully understood.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The connection between ____ and ____ has been established, but the effect of ____ on ____ is underexplored.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The influence of ____ on ____ is acknowledged in the literature, but further research is needed to clarify ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev - While ____ is frequently cited as a factor in ____, its role in ____ has not been thoroughly examined.";fmidx[i] = [i];
+    cntr++;	i = "litrev - The body of research on ____ has emphasized ____, but the effects of ____ on ____ remain underinvestigated.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Studies have shown that ____ is critical for ____, yet its contribution to ____ remains unclear.";fmidx[i] = [i];
+    cntr++;	i = "litrev - Although there is widespread agreement on the importance of ____, research into how ____ impacts ____ is limited.";fmidx[i] = [i];
+    cntr++;	i = "litrev - ____ has been explored in the context of ____, but little is known about its broader implications for ____.";fmidx[i] = [i];
+    cntr++;	i = "litrev -According to _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -Based on the findings of _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -it can be argued_____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ proposed that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -As explained by _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ states that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ claims that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -However, _____ stated that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ suggested _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ concluded that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -Similarly, _____ stated that _____. ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ for example, _____";fmidx[i] = [i];
+    cntr++; i = "litrev -_____ agreed that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -Based on the ideas of _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ defined _____. as _____. ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ relates _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -As identified by _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ disputed that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ contrasts _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -With regard to _____ argued that _____";fmidx[i] = [i]; 
+    cntr++;	i = "litrev -_____ concluded that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ confirmed that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ argues _____. ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ highlights _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ demonstrates _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ found that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ identifies _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ wrote that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ demonstrated _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ also _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ reported _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ pointed out that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ maintained that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ hypothesised that _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ expressed the opinion that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ also mentioned _____. ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ asserts that _____.";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ identified _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ goes on to state/suggest/say _____";fmidx[i] = [i]; 
+    cntr++;	i = "litrev -_____ emphasises _____";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ challenges the idea _____. ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ showed that _____ ";fmidx[i] = [i];
+    cntr++;	i = "litrev -_____ explored the idea _____";fmidx[i] = [i];
+    
+    cntr++;	i = "Findings - From the short review above, key findings emerge: __";fmidx[i] = [i];
+    cntr++;	i = "Findings - We describe the results of __, which show __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This suggests that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - We showed that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Our findings on __ at least hint that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This is an important finding in the understanding of the __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The present study confirmed the findings about __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Another promising finding was that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Our results demonstrated that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This result highlights that little is known about the __";fmidx[i] = [i];
+    cntr++;	i = "Findings - A further novel finding is that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Together, the present findings confirm __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The implications of these findings are discussed in __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The results demonstrate two things.  First, __. Second,  __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The results of the experiment found clear support for the __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This analysis found evidence for __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Planned comparisons revealed that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Our results casts a new light on __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This section summarises the findings and contributions made.";fmidx[i] = [i];
+    cntr++;	i = "Findings - It performs well, giving good results.";fmidx[i] = [i];
+    cntr++;	i = "Findings - This gives clearly better results than __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The results confirm that this a good choice for __";fmidx[i] = [i];
+    cntr++;	i = "Findings - From the results, it is clear that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - In this section, we will illustrate some experimental results.";fmidx[i] = [i];
+    cntr++;	i = "Findings - This delivers significantly better results due to __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The result now provides evidence to __";fmidx[i] = [i];
+    cntr++;	i = "Findings - It leads to good results, even if the improvement is negligible";fmidx[i] = [i];
+    cntr++;	i = "Findings - This yields increasingly good results on data.";fmidx[i] = [i];
+    cntr++;	i = "Findings - The result of this analysis is then compared with the  __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The applicability of these new results are then tested on __";fmidx[i] = [i];
+    cntr++;	i = "Findings - This is important to correctly interpret the results.";fmidx[i] = [i];
+    cntr++;	i = "Findings - The results are substantially better than __";fmidx[i] = [i];
+    cntr++;	i = "Findings - The results lead to similar conclusion where __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Superior results are seen for __";fmidx[i] = [i];
+    cntr++;	i = "Findings - From these results it is clear that __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Extensive results carried out show that this method improves __";fmidx[i] = [i];
+    cntr++;	i = "Findings - We obtain good results with this simple method.";fmidx[i] = [i];
+    cntr++;	i = "Findings - However, even better results are achieved when using our algorithm.";fmidx[i] = [i];
+    cntr++;	i = "Findings - It is worth discussing these interesting facts revealed by the results of  __";fmidx[i] = [i];
+    cntr++;	i = "Findings - Overall, our method was the one that obtained the most robust results.";fmidx[i] = [i];
+    cntr++;	i = "Findings - Slightly superior results are achieved with our algorithm.";fmidx[i] = [i];
+    cntr++;	i = "Findings - The result is equal to or better than a result that is currently accepted.";fmidx[i] = [i];
+    
+    cntr++;	i = "Comparison - The results demonstrated in this chapter match state of the art methods.";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Here we compare the results of the proposed method with those of the traditional methods.";fmidx[i] = [i];
+    cntr++;	i = "Comparison - These results go beyond previous reports, showing that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - In line with previous studies __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - This result ties well with previous studies wherein __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Contrary to the findings of __ we did not find __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - They have demonstrated that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Others have shown that __ improves __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - By comparing the results from __, we hope to determine __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - However, in line with the ideas of __, it can be concluded that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - When comparing our results to those of older studies, it must be pointed out that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - We have verified that using __ produces similar results";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Overall these findings are in accordance with findings reported by __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Even though we did not replicate the previously reported __, our results suggest that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - A similar conclusion was reached by __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - However, when comparing our results to those of older studies, it must be pointed out __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - This is consistent with what has been found in previous __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - A similar pattern of results was obtained in __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - The findings are directly in line with previous findings";fmidx[i] = [i];
+    cntr++;	i = "Comparison - These basic findings are consistent with research showing that __";fmidx[i] = [i];
+    cntr++;	i = "Comparison - Other results were broadly in line with __";fmidx[i] = [i];
+    
+    cntr++;	i = "Limitations - Because of the lack of __ we decided to not investigate __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - One concern about the findings of __ was that __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - Because of this potential limitation, we treat __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - The limitations of the present studies naturally include __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - Regarding the limitations of __, it could be argued that __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - Another limitation of this __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - This limitation is apparent in many __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - Another limitation in __ involves the issue of __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - The main limitation is the lack of __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - One limitation is found in this case.";fmidx[i] = [i];
+    cntr++;	i = "Limitations - One limitation of these methods however is that they __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - It presents some limitations such as __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - Although widely accepted, it suffers from some limitations due to __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - An apparent limitation of the method is __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - There are several limitations to this approach.";fmidx[i] = [i];
+    cntr++;	i = "Limitations - One limitation of our implementation is that it is __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - A major source of limitation is due to  __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - The approach utilised suffers from the limitation that __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - The limitations are becoming clear __";fmidx[i] = [i];
+    cntr++;	i = "Limitations - It suffers from the same limitations associated with a __";fmidx[i] = [i];
+    
+    cntr++;	i = "Causal - A popular explanation of __ is that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - It is by now generally accepted that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - A popular explanation is that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - As it is not generally agreed that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - These are very small and difficult to observe.";fmidx[i] = [i];
+    cntr++;	i = "Causal - It is important to highlight the fact that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - It is notable that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - An important question associated with __ is __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This did not impair the __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This is important because there is __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This implies that __ is associated with __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This is indicative for lack of __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This will not be biased by __";fmidx[i] = [i];
+    cntr++;	i = "Causal - There were also some important differences in __";fmidx[i] = [i];
+    cntr++;	i = "Causal - It is interesting to note that, __";fmidx[i] = [i];
+    cntr++;	i = "Causal - It is unlikely that __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This may alter or improve aspects of __";fmidx[i] = [i];
+    cntr++;	i = "Causal - In contrast, this makes it possible to __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This is particularly important when investigating __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This has been used to successfully account for __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This introduces a possible confound in __";fmidx[i] = [i];
+    cntr++;	i = "Causal - This was included to verify that __";fmidx[i] = [i];
+    
+    cntr++;	i = "Speculation - However, we acknowledge that there are considerable discussions among researchers as to __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - We speculate that this might be due to __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - There are reasons to doubt this explanation of __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - It remains unclear to which degree __ are attributed to __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - However, __ does seem to improve __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - This does seem to depend on __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - It is important to note, that the present evidence relies on __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - The results show that __ does not seem to impact the __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - However, the extent to which it is possible to __ is unknown";fmidx[i] = [i];
+    cntr++;	i = "Speculation - Alternatively, it could simply mean that __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - It is difficult to explain such results within the context of __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - It is unclear whether this is a suitable for __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - This appears to be a case of __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - From this standpoint, __ can be considered as __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - To date, __remain unknown";fmidx[i] = [i];
+    cntr++;	i = "Speculation - Under certain assumptions, this can be construed as __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - Because of this potential limitation, we treat __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - In addition, several questions remain unanswered.";fmidx[i] = [i];
+    cntr++;	i = "Speculation - At this stage of understanding, we believe__";fmidx[i] = [i];
+    cntr++;	i = "Speculation - Therefore, it remains unclear whether __";fmidx[i] = [i];
+    cntr++;	i = "Speculation - vThis may explain why __";fmidx[i] = [i];
+    
+    cntr++;	i = "Deduce - A difference between these __ can only be attributable to __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - Nonetheless, we believe that it is well jusified to __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - This may raise concerns about __ which can be addressed by __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - As discussed, this is due to the fact that __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - Results demonstrate that this is not necessarily true.";fmidx[i] = [i];
+    cntr++;	i = "Deduce - These findings support the notion that __ is not influenced by __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - This may be the reason why we did not find __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - In order to test whether this is equivalent across __, we __";fmidx[i] = [i];
+    cntr++;	i = "Deduce - Therefore, __ can be considered to be equivalent for __";fmidx[i] = [i];
+    cntr++;	i = "Introducion - This essay discusses _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is explored _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is defined _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - The definition of _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - will be given _____ is briefly outlined _____";fmidx[i] = [i]; 
+    cntr++;	i = "Introduction - _____ is explored _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - The issue focused on _____. ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is demonstrated _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is included _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - In this essay _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is explained _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ are identified _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - The key aspect discussed _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ are presented _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is justified _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - Views on _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - range from _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is evaluated _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is examined _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - The central theme _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is described _____ _____ is analysed _____";fmidx[i] = [i];
+    cntr++;	i = "Introduction - Emphasised are _____ ";fmidx[i] = [i];
+    cntr++;	i = "Introduction - _____ is explained and illustrated with examples _____";fmidx[i] = [i];
+    
+    
+    cntr++;	i = "Conclusion - In summary, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - To review, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - In conclusion, _____";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - In brief, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - To summarise, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - To sum up, _____";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - To conclude, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - Thus, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - Hence, _____";fmidx[i] = [i];
+    cntr++;	i = "Conclusion - It has been shown that, _____";fmidx[i] = [i]; 
+    cntr++;	i = "Conclusion - In short, _____";fmidx[i] = [i];
+
+
+    cntr++;	i = "Contrast - Similarly, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - In the same way _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Likewise, _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - In comparison _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Complementary to this _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Then again, _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - However, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - This is in contrast to _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - In contrast, _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - And yet _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Nevertheless, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Conversely, _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - On the contrary, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - On the other hand, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Notwithstanding _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Whereas _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - In contrast to _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - That aside, _____";fmidx[i] = [i];
+    cntr++;	i = "Contrast - While this is the case _____ _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - disputes _____ ";fmidx[i] = [i];
+    cntr++;	i = "Contrast - Despite this, _____";fmidx[i] = [i];
+    
+    
+    cntr++;	i = "exmp - For example, _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ as can be seen in _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ supports _____";fmidx[i] = [i];
+    cntr++;	i = "exmp - For instance, _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ as demonstrated by _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ is observed _____";fmidx[i] = [i];
+    cntr++;	i = "exmp - Specifically, _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ is shown _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - _____ exemplifies _____";fmidx[i] = [i];
+    cntr++;	i = "exmp - Such as _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - As an example _____ ";fmidx[i] = [i];
+    cntr++;	i = "exmp - To illustrate, _____";fmidx[i] = [i];
+    
+    
+    cntr++;	i = "Add idea - Also, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Equally important _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Subsequently, _____";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Futhermore, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Moreover, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - As well as _____.";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Next_____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Another essential point_____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Additionally, _____";fmidx[i] = [i];
+    cntr++;	i = "Add idea - More importantly, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - In the same way _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Another _____";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Then, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - In addition, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Besides, _____";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Then again, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - Firstly, _____ secondly, _____ thirdly, _____finally, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Add idea - To elaborate, _____";fmidx[i] = [i];
+
+
+    cntr++;	i = "Outcome - Therefore _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - As a result _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - For that reason _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Hence, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Otherwise, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Consequently, _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The evidence suggests/shows _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - It can be seen that _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - With regard to _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - After examining _____. ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - These factors contribute to _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - It is apparent that _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Considering _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - it can be concluded that _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Subsequently, _____. ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The effect is _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The outcome is _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The result _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The correlation _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The relationship _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The link _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The convergence _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - The connection _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ interacts with _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Both _____.";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ affects _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - Thus it is _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ causes _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ influences _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ predicts _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ leads to _____";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ informs _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ presupposes _____ emphasises";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ demonstrates _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ impacts on _____ ";fmidx[i] = [i];
+    cntr++;	i = "Outcome - _____ supports _____";fmidx[i] = [i];
+    
+    
+    cntr++;	i = "Rare - Seldom _____ ";fmidx[i] = [i];
+    cntr++;	i = "Rare - Few _____ ";fmidx[i] = [i];
+    cntr++;	i = "Rare - Not many _____";fmidx[i] = [i];
+    cntr++;	i = "Rare - A few _____ ";fmidx[i] = [i];
+    cntr++;	i = "Rare - _____ is uncommon ";fmidx[i] = [i];
+    cntr++;	i = "Rare - _____ is scarce _____";fmidx[i] = [i];
+    cntr++;	i = "Rare - Rarely _____ ";fmidx[i] = [i];
+    cntr++;	i = "Rare - _____ is rare _____ ";fmidx[i] = [i];
+    cntr++;	i = "Rare - _____ is unusual _____";fmidx[i] = [i];
+    
+    
+    cntr++;	i = "Common - Numerous _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - Many _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - More than _____";fmidx[i] = [i];
+    cntr++;	i = "Common - Several _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - Almost all _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - The majority _____";fmidx[i] = [i];
+    cntr++;	i = "Common - Most _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - Commonly _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - Significant _____";fmidx[i] = [i];
+    cntr++;	i = "Common - _____ is prevalent _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - _____ is usual _____ ";fmidx[i] = [i];
+    cntr++;	i = "Common - Usually _____";fmidx[i] = [i];
+
+
+    cntr++;	i = "Inclusive ideas - Perhaps _____ ";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ may be _____ ";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ might be _____";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - There is limited evidence for _____ ";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ is debated _____ ";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ is possibly _____";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ could _____ ";fmidx[i] = [i];
+    cntr++;	i = "Inclusive ideas - _____ may include _____";fmidx[i] = [i];
+
+
+    cntr++;	i = "Background - In the past, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Historically, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Traditionally, _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Customarily, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Beforehand, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Originally, _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Prior to this, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Earlier, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Formerly, _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Previously, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Over time, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - At the time of _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Conventionally, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Foundational to this is _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - In earlier _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Initially, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - At first, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - Recently _____";fmidx[i] = [i];
+    cntr++;	i = "Background - Until now, _____ ";fmidx[i] = [i];
+    cntr++;	i = "Background - The traditional interpretation _____";fmidx[i] = [i];
+
+	for (var i in fmidx)
+	{
+		var url = document.createElement("option");
+		url.value += fmidx[i]
+		url.text = i;
+		
+		document.getElementById("link").add(url);
+	}
+}
+
+function gebi(id)
+{
+	return document.getElementById(id);
+}
+
+function concat()
+{
+	for (var i = 0; i < document.getElementById("link").options.length; i++)
+	{
+		document.getElementById("display2").innerHTML += document.getElementById("link").options[i].text + " - " + document.getElementById("link").options[i].value + "<br>";
+	}
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="rand()" value="Random Article">
+<input type="button" onclick="concat()" value="DisplayAll">
+<input id="schval"><input type="button" onclick="ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];" value="Search"><br>
+<input id="linkurl" style="width:75%">
+<div>
+    <button onclick="gebi('schval').value='Introduction';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Introduction</button>
+    <button onclick="gebi('schval').value='Methods';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];" >Methods</button>
+    <button onclick="gebi('schval').value='Inproof';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Inside Proof</button>
+    <button onclick="gebi('schval').value='Outproof';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">After Proof</button>
+    <button onclick="gebi('schval').value='Causal';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Causal</button>
+    <button onclick="gebi('schval').value='Limitations';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Limitations</button>
+    <button onclick="gebi('schval').value='Speculation';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Speculation</button>
+    <button onclick="gebi('schval').value='Deduce';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Deduce</button>
+    <button onclick="gebi('schval').value='Results';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Results</button>
+    <button onclick="gebi('schval').value='litrev';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Literature Review</button>
+    <button onclick="gebi('schval').value='def';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Definition</button>
+    <button onclick="gebi('schval').value='exmp';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Example</button>
+    <button onclick="gebi('schval').value='Discussion';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Discussion</button>
+    <button onclick="gebi('schval').value='Comparison';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Comparison</button>
+    <button onclick="gebi('schval').value='Background';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Background</button>
+    <button onclick="gebi('schval').value='Inclusive Ideas';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Inclusive Ideas</button>
+    <button onclick="gebi('schval').value='Common';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Common</button>
+    <button onclick="gebi('schval').value='Rare';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Rare</button>
+    <button onclick="gebi('schval').value='Add Idea';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Add Idea</button>
+    <button onclick="gebi('schval').value='Contrast';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Contrast</button>
+    <button onclick="gebi('schval').value='Conclusion';ans=search();var loc=Math.floor(Math.random()*ans.length);gebi('display2').innerHTML=ans[loc];">Conclusion</button>
+</div>
+
+<div id="myDiv">
+<select id="link" class="left-div" size=25 onchange="openLink()">
+
+</select>
+<div id="display2" class="right-div"></div>
+</div>
+<script type="text/javascript">
+var elts = document.getElementById("link").options;
+for (var i = 0; i < elts.length; i++)
+{
+	var link = elts[i].value;
+	var nms = link.split("/");
+	elts[i].text = nms[nms.length - 2] + "-" + nms[nms.length-1];
+}
+buildforums();
+openLink();
+</script>
+</body>
+</html>
