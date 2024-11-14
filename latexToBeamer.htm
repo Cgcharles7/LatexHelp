@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX to Beamer Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        textarea { width: 100%; height: 200px; margin-top: 10px; }
+        pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+
+<h1>LaTeX to Beamer Converter</h1>
+
+<label for="latexInput">Enter LaTeX Document:</label>
+<textarea id="latexInput" placeholder="Paste your LaTeX document here..."></textarea>
+
+<button onclick="convertToBeamer()">Convert to Beamer</button>
+
+<h2>Generated Beamer Code:</h2>
+<pre id="beamerOutput"></pre>
+
+<script>
+function convertToBeamer() {
+    const latexText = document.getElementById('latexInput').value;
+    const beamerCode = latexToBeamer(latexText);
+    document.getElementById('beamerOutput').textContent = beamerCode;
+}
+
+function latexToBeamer(latexText) {
+    // Define basic Beamer template
+    let beamerTemplate = `
+\\documentclass{beamer}
+\\title{Generated Presentation}
+\\begin{document}
+\\frame{\\titlepage}
+`;
+
+    // Convert sections and subsections
+    const sections = latexText.split(/\\section{([^}]+)}/g);
+    for (let i = 1; i < sections.length; i += 2) {
+        const sectionTitle = sections[i];
+        const sectionContent = sections[i + 1] || "";
+
+        // Add each section as a new Beamer frame
+        beamerTemplate += `
+\\begin{frame}{${sectionTitle}}
+${processContent(sectionContent)}
+\\end{frame}
+`;
+    }
+
+    // Close Beamer document
+    beamerTemplate += "\\end{document}";
+    return beamerTemplate;
+}
+
+// Function to process content, adjusting for subsections and text
+function processContent(content) {
+    let processedContent = "";
+
+    // Split on subsections
+    const subsections = content.split(/\\subsection{([^}]+)}/g);
+    for (let j = 0; j < subsections.length; j++) {
+        if (j % 2 === 0) {
+            // Regular text, just add it
+            processedContent += subsections[j] + "\n";
+        } else {
+            // It's a subsection title
+            processedContent += `\\textbf{${subsections[j]}}\\\\\n`;
+        }
+    }
+
+    // Basic replacements for LaTeX commands that are common in papers but not in presentations
+    processedContent = processedContent
+        .replace(/\\begin{itemize}/g, "\\begin{itemize}")
+        .replace(/\\end{itemize}/g, "\\end{itemize}")
+        .replace(/\\begin{enumerate}/g, "\\begin{enumerate}")
+        .replace(/\\end{enumerate}/g, "\\end{enumerate}");
+
+    return processedContent;
+}
+</script>
+
+</body>
+</html>
